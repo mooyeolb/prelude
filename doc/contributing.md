@@ -1,3 +1,5 @@
+# Contributing
+
 ## Issues
 
 Report issues and suggest features and improvements on the
@@ -19,10 +21,7 @@ guidelines](https://github.com/bbatsov/prelude/blob/master/CONTRIBUTING.md).
 ## Documentation
 
 Good documentation is just as important as good code.
-
-Consider improving and extending the
-this manual and the
-[community wiki](https://github.com/bbatsov/prelude/wiki).
+Please, consider improving and extending this manual.
 
 ### Working on the Manual
 
@@ -50,9 +49,6 @@ If you want to make changes to the manual's page structure you'll have to edit
 ## Donations
 
 You can support the development of Prelude via
- [Salt](https://salt.bountysource.com/teams/prelude),
- [Patreon](https://www.patreon.com/bbatsov) and
- [Liberapay](https://liberapay.com/bbatsov/donate).
-
-[![Liberapay](https://liberapay.com/assets/widgets/donate.svg)](https://liberapay.com/bbatsov/donate)
-[![Patreon](https://img.shields.io/badge/patreon-donate-orange.svg)](https://www.patreon.com/bbatsov)
+[GitHub Sponsors](https://github.com/sponsors/bbatsov),
+[PayPal](https://www.paypal.me/bbatsov) and
+[Patreon](https://www.patreon.com/bbatsov).

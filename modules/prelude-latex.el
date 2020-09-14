@@ -1,6 +1,6 @@
 ;;; prelude-latex.el --- Emacs Prelude: Sane setup for LaTeX writers.
 ;;
-;; Copyright © 2011-2018 Bozhidar Batsov
+;; Copyright © 2011-2020 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov <bozhidar@batsov.com>
 ;; URL: https://github.com/bbatsov/prelude
@@ -35,7 +35,7 @@
 (prelude-require-packages '(auctex cdlatex))
 (require 'smartparens-latex)
 ;; for case
-(require 'cl)
+(require 'cl-lib)
 
 (with-eval-after-load "company"
   (prelude-require-packages '(company-auctex))
@@ -78,7 +78,7 @@
   (turn-on-auto-fill)
   (abbrev-mode +1)
   (smartparens-mode +1)
-  (case prelude-latex-fast-math-entry
+  (cl-case prelude-latex-fast-math-entry
     (LaTeX-math-mode (LaTeX-math-mode 1))
     (cdlatex (turn-on-cdlatex))))
 

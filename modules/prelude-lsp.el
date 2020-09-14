@@ -1,6 +1,6 @@
 ;;; prelude-lsp.el --- lsp-mode setup
 ;;
-;; Copyright © 2011-2018 Bozhidar Batsov
+;; Copyright © 2011-2020 Bozhidar Batsov
 ;;
 ;; Author: Bozhidar Batsov, Ben Alex
 ;; URL: https://github.com/bbatsov/prelude
@@ -48,6 +48,7 @@
 (define-key lsp-ui-mode-map (kbd "C-c C-l w") 'lsp-ui-peek-find-workspace-symbol)
 (define-key lsp-ui-mode-map (kbd "C-c C-l i") 'lsp-ui-peek-find-implementation)
 (define-key lsp-ui-mode-map (kbd "C-c C-l d") 'lsp-describe-thing-at-point)
+(define-key lsp-ui-mode-map (kbd "C-c C-l e") 'lsp-execute-code-action)
 
 (setq lsp-ui-sideline-enable t)
 (setq lsp-ui-doc-enable t)

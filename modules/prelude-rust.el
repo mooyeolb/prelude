@@ -40,7 +40,8 @@
 
 (prelude-require-packages '(rust-mode
                             cargo
-                            flycheck-rust))
+                            flycheck-rust
+                            ron-mode))
 
 (unless (featurep 'prelude-lsp)
   (prelude-require-packages '(racer)))
@@ -58,7 +59,9 @@
 
   (defun prelude-rust-mode-defaults ()
     (unless (featurep 'prelude-lsp)
-      (local-set-key (kbd "C-c C-d") 'racer-describe))
+      (local-set-key (kbd "C-c C-d") 'racer-describe)
+      (local-set-key (kbd "C-c .") 'racer-find-definition)
+      (local-set-key (kbd "C-c ,") 'pop-tag-mark))
 
     ;; Prevent #! from chmodding rust files to be executable
     (remove-hook 'after-save-hook 'executable-make-buffer-file-executable-if-script-p)
