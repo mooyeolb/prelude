@@ -1,9 +1,9 @@
-;;; prelude-xml.el --- Emacs Prelude: XML editing configuration.
+;;; prelude-dart.el --- Emacs Prelude: Dart programming configuration.
 ;;
 ;; Copyright © 2011-2020 Bozhidar Batsov
 ;;
-;; Author: Bozhidar Batsov <bozhidar@batsov.com>
-;; URL: https://github.com/bbatsov/prelude
+;; Author: Rafael Medina <rafaelmedina789@gmail.com>
+;; URL: http://batsov.com/prelude
 ;; Version: 1.0.0
 ;; Keywords: convenience
 
@@ -11,7 +11,7 @@
 
 ;;; Commentary:
 
-;; Some basic nxml-mode configuration.
+;; Some basic configuration for prelude-dart.
 
 ;;; License:
 
@@ -32,19 +32,27 @@
 
 ;;; Code:
 
-(require 'nxml-mode)
+(require 'prelude-lsp)
+(prelude-require-packages '(lsp-dart))
 
-(push '("<\\?xml" . nxml-mode) magic-mode-alist)
+(with-eval-after-load 'lsp-dart
+  (add-hook 'dart-mode-hook #'lsp))
 
-;; pom files should be treated as xml files
-(add-to-list 'auto-mode-alist '("\\.pom$" . nxml-mode))
+(with-eval-after-load 'dart-mode
+  (defun prelude-dart-mode-defaults ()
 
-(setq nxml-child-indent 4)
-(setq nxml-attribute-indent 4)
-(setq nxml-auto-insert-xml-declaration-flag nil)
-(setq nxml-bind-meta-tab-to-complete-flag t)
-(setq nxml-slash-auto-complete-flag t)
+    (setq dap-launch-configuration-providers  '(dap-debug-template-configurations-provider))
 
-(provide 'prelude-xml)
+    ;; Add to default dart-mode key bindings
+    (lsp-dart-define-key "s o" #'lsp-dart-show-outline)
+    (lsp-dart-define-key "s f" #'lsp-dart-show-flutter-outline)
+    (dap-dart-setup))
 
-;;; prelude-xml.el ends here
+  (setq prelude-dart-mode-hook 'prelude-dart-mode-defaults)
+
+  (add-hook 'dart-mode-hook (lambda ()
+                            (run-hooks 'prelude-dart-mode-hook))))
+
+(provide 'prelude-dart)
+
+;;; prelude-dart.el ends here
